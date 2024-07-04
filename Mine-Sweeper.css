@@ -1,0 +1,209 @@
+/** @format */
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#gameContainer {
+  text-align: center;
+}
+
+#gameBoard {
+  margin-top: 20px;
+  display: grid;
+  gap: 1px;
+  max-width: 800px;
+  margin: auto;
+}
+
+#gameBoard div {
+  width: 40px;
+  height: 40px;
+  background-color: #a9a9a9; /* 開いていないセルの色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-size: cover; /* 画像のサイズをセルに合わせる */
+}
+
+#gameBoard div.opened {
+  background-color: #d3d3d3; /* 開いたセルの色 */
+}
+
+#gameBoard div.flag {
+  background-image: url('hata.png');
+  background-size: cover;
+}
+
+#gameBoard div.mine {
+  background-color: #a9a9a9; /* 開けられていないセルの色と同じ */
+  background-image: url('bomb.png');
+  background-size: cover;
+  position: relative; /* 爆発アニメーションのために位置を相対的に設定 */
+}
+
+.explosion-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.particle:nth-child(1) .sparcle {
+  animation-delay: 0ms;
+}
+
+.particle:nth-child(2) .sparcle {
+  animation-delay: 50ms;
+}
+
+.particle:nth-child(3) .sparcle {
+  animation-delay: 100ms;
+}
+
+.particle:nth-child(4) .sparcle {
+  animation-delay: 150ms;
+}
+
+.particle:nth-child(5) .sparcle {
+  animation-delay: 200ms;
+}
+
+.particle:nth-child(6) .sparcle {
+  animation-delay: 250ms;
+}
+
+.particle:nth-child(7) .sparcle {
+  animation-delay: 300ms;
+}
+
+.particle:nth-child(8) .sparcle {
+  animation-delay: 350ms;
+}
+
+.particle:nth-child(9) .sparcle {
+  animation-delay: 400ms;
+}
+
+.particle:nth-child(10) .sparcle {
+  animation-delay: 450ms;
+}
+
+.particle:nth-child(11) .sparcle {
+  animation-delay: 500ms;
+}
+
+.particle:nth-child(12) .sparcle {
+  animation-delay: 550ms;
+}
+
+.particle:nth-child(13) .sparcle {
+  animation-delay: 600ms;
+}
+
+.particle:nth-child(14) .sparcle {
+  animation-delay: 650ms;
+}
+
+.particle:nth-child(15) .sparcle {
+  animation-delay: 700ms;
+}
+
+.particle:nth-child(16) .sparcle {
+  animation-delay: 750ms;
+}
+
+.particle:nth-child(17) .sparcle {
+  animation-delay: 800ms;
+}
+
+.particle:nth-child(18) .sparcle {
+  animation-delay: 850ms;
+}
+
+.particle:nth-child(19) .sparcle {
+  animation-delay: 900ms;
+}
+
+.particle:nth-child(20) .sparcle {
+  animation-delay: 950ms;
+}
+
+.particle:nth-child(21) .sparcle {
+  animation-delay: 1000ms;
+}
+
+.sparcle {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(228, 249, 250, 0);
+  will-change: transform, box-shadow, background-color;
+  transform: rotate(45deg) scale(0.5) translateZ(0);
+  animation: explode 333ms;
+  box-shadow: 0 0 0 0 #fde655;
+}
+
+@keyframes explode {
+  0% {
+    background-color: #e4f9fa;
+    transform: rotate(45deg) scale(1.2) translateZ(0);
+    box-shadow: 0 0 0 0 #fde655;
+  }
+  40% {
+    background-color: rgba(228, 249, 250, 0.1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1) translateZ(0);
+    box-shadow: 0 0 0 10px #fde655;
+    background-color: rgba(228, 249, 250, 0);
+  }
+  60% {
+    box-shadow: 0 0 0 50px #d47946;
+    transform: rotate(45deg) scale(0.5) translateZ(0);
+  }
+  70% {
+    background-color: rgba(228, 249, 250, 0);
+    box-shadow: 0 0 0 30px #7a2c1f;
+  }
+  100% {
+    background-color: #7a2c1f;
+    box-shadow: 0 0 0 0 #7a2c1f;
+    transform: rotate(45deg) scale(0.25) translateZ(0);
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.congratsButton {
+  left: 0;
+}
